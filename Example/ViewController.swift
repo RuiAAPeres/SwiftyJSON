@@ -43,9 +43,9 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("JSONCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("JSONCell", forIndexPath: indexPath) as UITableViewCell
             
-        var row = indexPath.row
+        vletrow = indexPath.row
         
         switch self.json.type {
         case .Array:
@@ -78,7 +78,7 @@ class ViewController: UITableViewController {
         
         if let nextController = object as? ViewController {
             
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow!() {
                 var row = indexPath.row
                 var nextJson: JSON = JSON.nullJSON
                 
